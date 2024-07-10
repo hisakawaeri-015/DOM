@@ -30,3 +30,18 @@ documentオブジェクトを使うと、JavaScriptでDOM操作ができる
 
 //HTML要素をclassで所得し、中身を出力 
  console.log(document.getElementsByClassName('heading'));
+---------------------------------------------------------
+ //複数のHTML要素を１つずつ所得し、中身を出力
+ const headings = document.getElementsByClassName('heading');
+
+ // 複数のHTML要素を1つずつ取得し、中身を出力する
+ for (let i = 0; i < headings.length; i++) {
+  console.log(headings[i]);
+}
+
+//要素名で取得例
+document.querySelector('h1');
+//idで取得例
+document.querySelector('#second-heading');
+//classで取得例
+document.querySelector('.list');
