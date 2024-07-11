@@ -1,0 +1,39 @@
+DOM操作でHTML要素を作成
+--------------------------------------------------------------------------------------------------------
+★createElement()メソッド：HTML要素を新しく作成する(クリエイトエレメント)
+★textContent/ innerHTMLプロパティ：HTML要素にテキストを追加する(テキストコンテンツ/インナーHTMLプロパティ)
+プロパティ：財産・所有権
+★appendChild()メソッド：作成したHTML要素を子要素として末尾に追加する(アペンドチャイルド)
+---------------------------------------------------------------------------------------------------------
+★createElement()メソッド
+引数には以下のように、作成したいHTML要素名を指定
+
+// 新しくli要素を作成し、定数に代入する
+const li = document.createElement('li');
+-------------------------------------------------------
+★textContent/ innerHTMLプロパティ
+作成したHTML要素にテキストを追加するには、textContentプロパティやinnerHTMLプロパティに値を代入します。
+どちらも文字列を追加する点では一緒ですが、innerHTMLは通常の文字列に加えてHTMLタグも記述できます。
+
+// 新しくli要素を作成し、定数に代入する
+const li = document.createElement('li');
+
+// 作成したli要素にテキストを追加する
+li.textContent = 'JavaScriptで新しく作成したリスト3';
+li.innerHTML = '<a href="#">JavaScriptで新しく作成したリスト3</a>';
+-----------------------------------------------------------------------
+★appendChild()メソッド
+HTML要素をdocumentオブジェクトに追加するには、appendChild()メソッドを使います。
+appendChild()は、作成したHTML要素を子要素として末尾に追加するメソッドです。
+
+// 新しくli要素を作成し、定数に代入する
+const li = document.createElement('li');
+
+// 作成したli要素にテキストを追加する
+li.textContent = 'JavaScriptで新しく作成したリスト3';
+li.innerHTML = '<a href="#">JavaScriptで新しく作成したリスト3</a>';
+
+// ul要素の末尾にli要素を追加する
+document.querySelector('ul').appendChild(li);
+
+
