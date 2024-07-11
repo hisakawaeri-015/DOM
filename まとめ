@@ -1,0 +1,14 @@
+まとめ
+
+メソッド	処理の内容
+getElementById()	HTML要素をidで取得する
+getElementsByClassName()	HTML要素をclassで取得する
+querySelector()	HTML要素をCSSセレクタで取得する（最初の１つ）
+querySelectorAll()	HTML要素をCSSセレクタで取得する（すべて）
+createElement()	HTML要素を新しく作成する
+appendChild()	HTML要素を子要素として末尾に追加する
+
+プロパティ	値
+length	文字列や配列の長さ
+textContent	HTML要素内のテキスト
+innerHTML	HTML要素内のテキスト（HTMLタグも可）
