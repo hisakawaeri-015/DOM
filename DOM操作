@@ -1,9 +1,17 @@
-DOM操作の仕組み
+★★DOM操作の仕組み
+Webサイトに動きをつけるには、DOM操作の理解が必須
+Document Object Modelの略称
+ドキュメント：文書
+オブジェクト：物体
+=HTMLの文書を物体として取り出せる=DOM操作(Javascriptによってできる)
 
 ブラウザがHTMLファイルを読み込むと、自動的にDOMツリーを生成する
 DOMツリーが生成されると、documentオブジェクトが使えるようになる
 documentオブジェクトを使うと、JavaScriptでDOM操作ができる
+なお、DOMツリーを構成する各要素はノード
 
+実は、HTMLオブジェクトの上にはdocumentオブジェクトがあり、これによって
+DOM操作がJavascriptでできる
 ------------------------------------------------------------
  <!DOCTYPE html>
  <html lang="ja">
@@ -20,11 +28,25 @@ documentオブジェクトを使うと、JavaScriptでDOM操作ができる
  
  </html>
 ------------------------------------------------
+では、実際にdocumentオブジェクトを使ってみましょう。
+(document.HTML要素名と記述することで、そのHTML要素の中身を取得できます。)
+
  // head要素を取得し、中身を出力する
  console.log(document.head);
+
  // body要素を取得し、中身を出力する
  console.log(document.body);
 ------------------------------------------------- 
+★★DOM操作を行うときはまず、「どのHTML要素に動きを加えるか」
+という「操作の対象」を取得しなければなりません。
+-----------------------------------------------------------
+以下のメソッドを使えば、より細かくHTML要素を取得できる。
+・getElementById()：HTML要素をidで取得する(ゲットエレメントバイアイディー)
+・getElementsByClassName()：HTML要素をclassで取得する(ゲットエレメントバイクラスネーム)
+・querySelector()：HTML要素をCSSセレクタで取得する（最初の１つ）(クエリーセレクター)
+・querySelectorAll()：HTML要素をCSSセレクタで取得する（すべて）(クエリーセレクターオール)
+---------------------------------------------------------------
+
  //HTML要素をidで取得し、中身を出力
  console.log(document.getElementById('first-list'));
 
