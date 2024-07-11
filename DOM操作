@@ -40,30 +40,73 @@ DOM操作がJavascriptでできる
 ★★DOM操作を行うときはまず、「どのHTML要素に動きを加えるか」
 という「操作の対象」を取得しなければなりません。
 -----------------------------------------------------------
+(例文)
+   <h1 id="first-heading" class="heading">大見出し</h1>
+   <h2 id="second-heading" class="heading">中見出し</h2>
+   <ul>
+     <li id="first-list" class="list">リスト1</li>
+     <li id="second-list" class="list">リスト2</li>
+   </ul>
+---------------------------------------------------
 以下のメソッドを使えば、より細かくHTML要素を取得できる。
-・getElementById()：HTML要素をidで取得する(ゲットエレメントバイアイディー)
-・getElementsByClassName()：HTML要素をclassで取得する(ゲットエレメントバイクラスネーム)
-・querySelector()：HTML要素をCSSセレクタで取得する（最初の１つ）(クエリーセレクター)
-・querySelectorAll()：HTML要素をCSSセレクタで取得する（すべて）(クエリーセレクターオール)
----------------------------------------------------------------
-
- //HTML要素をidで取得し、中身を出力
+★getElementById()：指定したidを持つHTML要素を1つ取得するメソッド(ゲットエレメントバイアイディー)
+ // HTML要素をidで取得し、中身を出力する
  console.log(document.getElementById('first-list'));
 
-//HTML要素をclassで所得し、中身を出力 
+★getElementsByClassName()：HTML要素をclassで取得する(ゲットエレメントバイクラスネーム)
+ // HTML要素をclassで取得し、中身を出力する
  console.log(document.getElementsByClassName('heading'));
----------------------------------------------------------
- //複数のHTML要素を１つずつ所得し、中身を出力
- const headings = document.getElementsByClassName('heading');
 
+今回のようにgetElementsByClassName()メソッドを使って複数のHTML要素を取得した場合、
+HTMLcollectionという配列風のデータが戻り値として返ってきます。
+このHTMLcollectionからHTML要素を1つずつ取得するには、for文を使って繰り返し処理を行えば簡単
+for (カウンタ変数の初期値; 条件式; カウンタ変数の増減値) {
+  カウンタ変数が決まった値になるまで繰り返す処理
+}
+lengthプロパティ：文字列の文字数や配列の要素数を取得するプロパティで、HTMLcollectionにも使うことができます。
+ // 複数のHTML要素を取得し、定数に代入する
+ const headings = document.getElementsByClassName('heading');
+ 
  // 複数のHTML要素を1つずつ取得し、中身を出力する
  for (let i = 0; i < headings.length; i++) {
-  console.log(headings[i]);
-}
+   console.log(headings[i]);
+ }
+上記のコードではheadings.lengthの値が2なので、
+条件式はi < 2となり、カウンタ変数iが0と1のときに処理が実行されます。
+つまり、以下の処理です。
 
-//要素名で取得例
+1回目の処理：console.log(headings[0]);
+2回目の処理：console.log(headings[1]);
+このように、HTMLcollectionの中身を1つずつ取得できます。
+
+★querySelector()：指定したCSSセレクタに最初に合致したHTML要素を取得するメソッド（最初の１つ）(クエリーセレクター)
+querySelector()メソッドの引数にはCSSセレクタを指定するので、以下のような書き方になる
+// 要素名で取得する例
 document.querySelector('h1');
-//idで取得例
+// id名で取得する例
 document.querySelector('#second-heading');
-//classで取得例
+// class名で取得する例
 document.querySelector('.list');
+なお、listというクラスを持つHTML要素は2つあります。
+しかし、querySelector()は最初に合致したHTML要素を取得するメソッドなので、
+1つ目のHTML要素のみが表示されている点に注意してください。
+ // HTML要素をCSSセレクタで取得し、中身を出力する（すべて）
+ console.log(document.querySelectorAll('.heading'));
+ console.log(document.querySelectorAll('li'));
+
+★querySelectorAll()：HTML要素をCSSセレクタで取得する（すべて）(クエリーセレクターオール)
+querySelectorAll()メソッドを使った場合は、NodeListが戻り値として返ってきます。
+HTMLcollectionと同じようにfor文やlengthプロパティが使えるので、
+先ほどと同じようにHTML要素を1つずつ取得してみてください。
+// 複数のHTML要素を取得し、定数に代入する
+const cssHeadings = document.querySelectorAll('.heading');
+const cssLists = document.querySelectorAll('li');
+
+// 複数のHTML要素を1つずつ取得し、中身を出力する
+for (let i = 0; i < cssHeadings.length; i++) {
+  console.log(cssHeadings[i]);
+}
+for (let i = 0; i < cssLists.length; i++) {
+  console.log(cssLists[i]);
+}
+---------------------------------------------------------------
