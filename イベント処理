@@ -28,3 +28,20 @@ HTML要素.addEventListener('イベントの種類', () => {
   btn.addEventListener('click', () => {
     console.log('クリックされました！');
   });
+-----------------------------------------------------------------------
+  // add-btnというidを持つHTML要素を取得し、定数に代入する
+  const addBtn = document.getElementById('add-btn');
+  // parent-listというidを持つHTML要素を取得し、定数に代入する
+  const parentList = document.getElementById('parent-list');
+
+
+  addBtn.addEventListener('click', () => {
+    // 新しくli要素を作成し、定数に代入する
+    const childList = document.createElement('li');
+
+    //作成したli要素にテキストを追加
+    childList.textContent = 'これはリスト要素です';
+
+    // ul要素の末尾にli要素を追加する
+    parentList.appendChild(childList);
+  });
