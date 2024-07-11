@@ -38,5 +38,27 @@ countBtn.addEventListener('click', () => {
   console.log(text.length + '文字');
 });
 -------------------------------------------------------------------
+★選択されたラジオボタンの値を取得する
+------------------------------------------------------------------
+<form name="①areaForm">
+    <input type="radio" name="②area" value="③tokyo">東京都
+    <input type="radio" name="area" value="aichi">愛知県
+    <input type="radio" name="area" value="osaka">大阪府
+</form>
+<button id="area-btn">値の取得</button>
+
+//ラジオボタンの値を取得
+document.forms.①form要素のname属性の値.②input要素のname属性の値.③value;
+
+//ボタンを定数化
+const areaBtn = document.getElementById('area-btn');
+
+areaBtn.addEventListener('click', () => {
+  //ラジオボタンの値を取得
+  const area = document.forms.areaForm.area.value;
+  // 取得した文字列の文字数を出力する
+  console.log(area);
+});
+----------------------------------------------------------------
 
 
