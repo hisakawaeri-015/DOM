@@ -60,5 +60,37 @@ areaBtn.addEventListener('click', () => {
   console.log(area);
 });
 ----------------------------------------------------------------
+★選択されたチェックボックスの値を取得する
+------------------------------------------------------------------
+<form name="osForm">
+    <label>利用したことのあるOSを選択してください</label><br>
+    <input type="checkbox" name="os" value="windows">Windows
+    <input type="checkbox" name="os" value="macos">macOS
+    <input type="checkbox" name="os" value="linux">Linux
+    <input type="checkbox" name="os" value="ios">iOS
+    <input type="checkbox" name="os" value="android">Android
+</form>
+<button id="os-btn">値の取得</button>
+
+チェックボックスがラジオボタンと異なるのは、「複数の項目を選択できる」という点です。
+よって、選択されたすべての値を出力するために、for文とif文を組み合わせて使います。
+
+//ボタンを定数化
+const osBtn = document.getElementById('os-btn');
+
+osBtn.addEventListener('click', () => {
+  //ボタンの値を取得
+  const os = document.forms.osForm.os;
+  // 取得した文字列の文字数を出力する
+  console.log(os);
+
+  // 繰り返し処理でチェックボックスを1つずつ取り出し、もし選択されていれば値を出力する
+  // i++=インクリメント演算子：　i += 1 → i++ 加算代入
+  for (let i = 0; i < os.length; i++) {
+    if (os[i].checked) {
+      console.log(os[i].value);
+    }
+  }
+});
 
 
