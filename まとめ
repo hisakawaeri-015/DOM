@@ -12,3 +12,13 @@ appendChild()	HTML要素を子要素として末尾に追加する
 length	文字列や配列の長さ
 textContent	HTML要素内のテキスト
 innerHTML	HTML要素内のテキスト（HTMLタグも可）
+--------------------------------------------------------------
+
+ // 新しくli要素を作成し、定数に代入する
+ const li = document.createElement('li');
+ 
+ // 作成したli要素にテキストを追加する
+ li.textContent = 'JavaScriptで新しく作成したリスト3';
+ 
+ // ul要素の末尾にli要素を追加する
+ document.querySelector('ul').appendChild(li);
