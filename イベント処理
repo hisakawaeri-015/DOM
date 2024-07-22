@@ -29,6 +29,25 @@ HTML要素.addEventListener('イベントの種類', () => {
     console.log('クリックされました！');
   });
 -----------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>イベント処理</title>
+</head>
+
+<body>
+  <button id="output-btn">文字列の出力</button>
+
+  <button id="add-btn">リストの追加</button>
+  <ul id="parent-list"></ul>
+
+  <script src="js/event.js"></script>
+</body>
+
+</html>
+--------------------------------------------------------------------
   // add-btnというidを持つHTML要素を取得し、定数に代入する
   const addBtn = document.getElementById('add-btn');
   // parent-listというidを持つHTML要素を取得し、定数に代入する
