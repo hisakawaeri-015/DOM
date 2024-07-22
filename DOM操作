@@ -1,4 +1,4 @@
-★★DOM操作の仕組み
+★★DOM操作
 Webサイトに動きをつけるには、DOM操作の理解が必須
 Document Object Modelの略称
 ドキュメント：文書
@@ -60,9 +60,11 @@ DOM操作がJavascriptでできる
 今回のようにgetElementsByClassName()メソッドを使って複数のHTML要素を取得した場合、
 HTMLcollectionという配列風のデータが戻り値として返ってきます。
 このHTMLcollectionからHTML要素を1つずつ取得するには、for文を使って繰り返し処理を行えば簡単
+----------------------------------------------------------------
 for (カウンタ変数の初期値; 条件式; カウンタ変数の増減値) {
   カウンタ変数が決まった値になるまで繰り返す処理
 }
+------------------------------------------------------------------
 lengthプロパティ：文字列の文字数や配列の要素数を取得するプロパティで、HTMLcollectionにも使うことができます。
  // 複数のHTML要素を取得し、定数に代入する
  const headings = document.getElementsByClassName('heading');
