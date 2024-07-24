@@ -11,11 +11,14 @@
 </form>
 <button id="count-btn">文字数のカウント</button>
 --------------------------------------------------------------------
+これまでのようにgetElementById()メソッドなどを使って取得することもできますが、
+フォームの場合はname属性の値を使うことで簡単に取得できます。
+
 // textFormというname属性を持つフォームを取得する
 document.forms.textForm;
 
 // textBoxというname属性を持つテキストボックスを取得する
-document.forms.textForm.textbox;
+document.forms.textForm.textBox;
 
 // textBoxというname属性を持つテキストボックスの値を取得する
 document.forms.textForm.textBox.value;
